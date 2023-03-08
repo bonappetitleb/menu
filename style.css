@@ -12,7 +12,7 @@
 }
 
 .light-mode {
-  transition: all 0.7s ease-in-out;
+  transition: all 0.5s ease-in;
 }
 
 .dark-mode {
@@ -26,7 +26,11 @@
   --footer-Color: rgb(165, 163, 163);
   --a-Tag-Color: rgb(255, 255, 255);
   --image-brightness: 0.9;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.5s ease-in;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -57,6 +61,26 @@ a:hover {
   justify-content: center;
 }
 
+#toggle-btn {
+  background-color: transparent;
+  border: 1px solid var(--text_color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--a-Tag-Color);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  animation: slideRight 1s, fade-in 1s ease-in-out;
+}
+
+#toggle-btn:hover {
+  box-shadow: var(--box-Shadow);
+}
+
 .bg article {
   margin: auto;
   text-align: center;
@@ -73,6 +97,7 @@ a:hover {
   margin: 0;
   width: 250px;
   margin: auto;
+  animation: slideLeft 1s ease-in-out, fade-in 1s ease-in-out;
 }
 
 .bg span {
@@ -80,6 +105,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: slideLeft 1.2s ease-in-out, fade-in 1s ease-in-out;
 }
 
 .bg i {
@@ -147,6 +173,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 3.5rem;
 }
 
 .title img {
@@ -157,9 +184,11 @@ section {
   position: absolute;
   top: 0;
 }
+
 .title img:first-of-type {
   right: 0;
 }
+
 .title img:last-of-type {
   left: 0;
 }
@@ -213,25 +242,11 @@ footer div:last-child {
   box-shadow: var(--box-Shadow);
   z-index: 5;
   display: none;
+  animation: fade-in 1s;
 }
 
 #wp-btn i {
   font-size: 1.7em;
-}
-
-#toggle-btn {
-  background-color: transparent;
-  border: 1px solid var(--text_color);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--a-Tag-Color);
-  position: absolute;
-  right: 10px;
-  top: 10px;
 }
 
 @media only screen and (orientation: landscape) {
@@ -263,5 +278,36 @@ footer div:last-child {
 @media screen and (min-width: 800px) {
   footer {
     padding: 0 calc((100vw - 800px) / 2);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(-100vw);
+  }
+  80% {
+    transform: translateX(10vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateY(-20vw);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

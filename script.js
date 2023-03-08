@@ -36,7 +36,7 @@ const data = [
     price: 4,
   },
   {
-    name: "Re2a2at Fahita",
+    name: "Re2a2at Fajita",
     category: "Starters",
     unit: "Dozen",
     price: 5,
@@ -78,7 +78,7 @@ const data = [
     price: 3,
   },
   {
-    name: "Salade Crabe",
+    name: "Crabe Salade",
     category: "Salade",
     unit: "4 Pers",
     price: 15,
@@ -108,7 +108,7 @@ const data = [
     price: 10,
   },
   {
-    name: "Kebbe mamdoude",
+    name: "Kebbe Mamdoude",
     category: "Kebbe",
     unit: "kg",
     price: 8,
@@ -126,7 +126,7 @@ const data = [
     price: 2.5,
   },
   {
-    name: "Eres kebbe lahem",
+    name: "Eres kebbe Lahem",
     category: "Kebbe",
     unit: "pc",
     price: 3,
@@ -138,13 +138,13 @@ const data = [
     price: 3,
   },
   {
-    name: "Wara2 3enab zet",
+    name: "Wara2 3enab Zet",
     category: "Main Dishes",
     unit: "kg",
     price: 5,
   },
   {
-    name: "Wara2 3enab lahme",
+    name: "Wara2 3enab Lahme",
     category: "Main Dishes",
     unit: "kg",
     price: 8,
@@ -168,19 +168,19 @@ const data = [
     price: 8,
   },
   {
-    name: "Escaloppe",
+    name: "Escalope",
     category: "Main Dishes",
     unit: "kg",
     price: 9,
   },
   {
-    name: "Fahita",
+    name: "Fajita",
     category: "Main Dishes",
     unit: "kg",
     price: 8,
   },
   {
-    name: "Mahshe Sale2",
+    name: "Mahshe Sele2",
     category: "Main Dishes",
     unit: "kg",
     price: 4,
@@ -204,13 +204,13 @@ const data = [
     price: 4.5,
   },
   {
-    name: "Gateaux",
+    name: "Gateau",
     category: "Dessert",
     unit: "unit",
     price: 6,
   },
   {
-    name: "Gateaux ananas",
+    name: "Gateau Ananas",
     category: "Dessert",
     unit: "unit",
     price: 8,
@@ -222,7 +222,7 @@ const data = [
     price: 6,
   },
   {
-    name: "Ka3k l 3arous",
+    name: "Ka3k L 3arous",
     category: "Dessert",
     unit: "kg",
     price: 5,
@@ -258,7 +258,7 @@ const data = [
     price: 4,
   },
   {
-    name: "Ma3kroun Joz",
+    name: "Ma3kroun B Joz",
     category: "Dessert",
     unit: "kg",
     price: 6,
@@ -270,7 +270,7 @@ const data = [
     price: 4,
   },
   {
-    name: "Ftayer Ton",
+    name: "Ftayer Thon",
     category: "Lent",
     unit: "Dozen",
     price: 3,
@@ -306,7 +306,7 @@ const data = [
     price: 5,
   },
   {
-    name: "Wara2 3enab zet",
+    name: "Wara2 3enab Zet",
     category: "Lent",
     unit: "kg",
     price: 5,
@@ -360,15 +360,17 @@ const data = [
     price: 5,
   },
   {
-    name: "Gateaux syeme",
+    name: "Gateau Syeme",
     category: "Lent",
     unit: "unit",
     price: 6,
   },
-];
-const options = [
-  { name: "Fried/Cooked", price: 0.5, unit: "unit" },
-  // { name: "Delivery", price: 3 },
+  {
+    name: "Fried/Cooked",
+    category: "Cooking Options",
+    unit: "unit",
+    price: 0.5,
+  },
 ];
 
 const mainDOM = document.getElementById("main");
@@ -400,21 +402,6 @@ categories.forEach((category) => {
   });
   mainDOM.appendChild(section);
 });
-
-if (options.length !== 0) {
-  const optionSection = document.createElement("section");
-  options.forEach((opt) => {
-    optionSection.innerHTML += `
-      <div class="item options">
-        <div class="item-name">${opt.name}</div>
-        <div class="item-price">
-          ${opt.price} $ ${opt.unit && opt.unit !== "" ? "/" + opt.unit : ""}
-        </div>
-      </div>
-    `;
-  });
-  mainDOM.appendChild(optionSection);
-}
 
 // footer
 let date = new Date().getFullYear();
