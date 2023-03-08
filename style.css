@@ -105,7 +105,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: slideLeft 1.2s ease-in-out, fade-in 1s ease-in-out;
+  animation: slideLeft 1.2s ease-in-out, fade-in 1.2s ease-in-out;
 }
 
 .bg i {
