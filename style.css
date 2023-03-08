@@ -89,6 +89,8 @@ a:hover {
 .bg img {
   width: 90vw;
   max-width: 400px;
+  height: 90vw;
+  max-height: 400px;
   margin-bottom: 1.5rem;
   border-radius: 50%;
 }
@@ -250,11 +252,9 @@ footer div:last-child {
 }
 
 @media only screen and (orientation: landscape) {
-  .bg img,
   .bg img {
     width: 75vh;
-  }
-  .bg img {
+    height: 75vh;
     margin-bottom: 0;
   }
   .bg p {
@@ -263,9 +263,6 @@ footer div:last-child {
   }
   .bg span {
     margin: 0;
-  }
-  .bg i {
-    margin: 0 10px;
   }
 }
 
