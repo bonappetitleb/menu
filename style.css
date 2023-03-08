@@ -74,7 +74,7 @@ a:hover {
   position: absolute;
   right: 10px;
   top: 10px;
-  animation: slideRight 1s, fade-in 1s ease-in-out;
+  animation: fade-in 1s ease-in-out;
 }
 
 #toggle-btn:hover {
@@ -290,16 +290,6 @@ footer div:last-child {
   }
   100% {
     transform: translateX(0);
-  }
-}
-
-@keyframes slideRight {
-  0% {
-    transform: translateY(-20vw);
-  }
-
-  100% {
-    transform: translateY(0);
   }
 }
 
