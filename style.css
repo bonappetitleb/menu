@@ -111,7 +111,7 @@ a:hover {
 
 .bg p {
   margin: 0;
-  width: 17rem;
+  width: 16rem;
   margin: auto;
   animation: slideLeft 1s ease-in-out, fade-in 1s ease-in-out;
 }
