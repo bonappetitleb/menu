@@ -97,7 +97,7 @@ a:hover {
 
 .bg p {
   margin: 0;
-  width: 250px;
+  width: 265px;
   margin: auto;
   animation: slideLeft 1s ease-in-out, fade-in 1s ease-in-out;
 }
