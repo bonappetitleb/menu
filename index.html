@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bon Appetit</title>
-    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       rel="shortcut icon"
       href="./img/background.jpeg"
       type="image/x-icon" />
-
-    <script
-      src="https://kit.fontawesome.com/d996f67468.js"
-      crossorigin="anonymous"></script>
   </head>
   <body class="light-mode">
     <div id="progress-bar">
@@ -23,25 +24,20 @@
       <div class="bg">
         <article>
           <img src="img/background.jpeg" />
-          <p>" Where every meal is made with love</p>
-          <p>just like at home "</p>
+          <p>" Where every meal is made with love just like at home "</p>
           <span>
             <a
+              id="instagram-a"
               href="https://instagram.com/bon_appetit_leb?igshid=NDk5N2NlZjQ="
-              target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
+              target="_blank"></a>
             Bon Appetit
             <a
+              id="fb-a"
               href="https://www.facebook.com/Bonappetitleb?mibextid=ZbWKwL"
-              target="_blank"
-              ><i class="fab fa-facebook"></i
-            ></a>
+              target="_blank"></a>
           </span>
         </article>
-        <button id="toggle-btn">
-          <i class="fas fa-moon"></i>
-        </button>
+        <button id="toggle-btn"></button>
       </div>
       <header>
         <div>
@@ -62,12 +58,13 @@
       </footer>
       <div id="wp-btn">
         <a
+          id="wp-a"
           href="https://api.whatsapp.com/send/?phone=%2B96176410979&text&type=phone_number&app_absent=0"
-          target="_blank"
-          ><i class="fa fa-whatsapp"></i
-        ></a>
+          target="_blank"></a>
       </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="./svg.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

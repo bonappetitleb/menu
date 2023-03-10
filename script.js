@@ -372,7 +372,6 @@ const data = [
     price: 0.5,
   },
 ];
-
 loader();
 const mainDOM = document.getElementById("main");
 const categories = [];
@@ -428,13 +427,14 @@ let handleClick = () => {
   document.body.classList.toggle("dark-mode");
   document.body.classList.toggle("light-mode");
   if (document.body.classList.contains("dark-mode")) {
-    toggleBtn.innerHTML = `<i class="fas fa-sun"></i>`;
+    toggleBtn.innerHTML = sunLogo;
   } else {
-    toggleBtn.innerHTML = `<i class="fas fa-moon"></i>`;
+    toggleBtn.innerHTML = moonLogo;
   }
 };
 
 toggleBtn.addEventListener("click", handleClick);
+toggleBtn.innerHTML = moonLogo;
 
 function loader() {
   let loaded = false;
