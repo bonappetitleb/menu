@@ -33,8 +33,8 @@ categories.forEach((category) => {
         <div class="item-price">${item.price}$ /${item.unit}</div>
         <div class="item-options">
           <span class="item-count">0</span> 
-          <button class="remove">&minus;</button>
-          <button class="add">&plus;</button>
+          <input type='number' class='input-nb'/>
+          <button class="add">add</button>
         </div>
       </div>
   `;
@@ -48,29 +48,20 @@ buttons.forEach((btn) => btn.addEventListener("click", target));
 function target(e) {
   const btn = e.target;
   const count = btn.parentElement.querySelector(".item-count");
+  const input = Number(btn.parentElement.querySelector(".input-nb").value);
+  if (input < 0) return;
   const parent = btn.parentElement.parentElement;
   const title = parent.parentElement.querySelector(".title-name").textContent;
-  console.log(title);
   const itemName = parent.querySelector(".item-name").textContent;
-  if (btn.classList.contains("add")) add(itemName, count, title);
-  if (btn.classList.contains("remove")) remove(itemName, count, title);
+  if (btn.classList.contains("add")) add(itemName, input, title, count);
 }
 
-function add(itemName, count, title) {
-  const newCount = parseInt(count.textContent) + 1;
+function add(itemName, input, title, count) {
+  count.textContent = input;
   cart.find((item) => {
     return item.name == itemName && item.category == title;
-  }).count = newCount;
-  count.innerHTML = newCount;
-}
-
-function remove(itemName, count, title) {
-  if (count.textContent == 0) return;
-  const newCount = parseInt(count.textContent) - 1;
-  cart.find((item) => {
-    return item.name == itemName && item.category == title;
-  }).count = newCount;
-  count.innerHTML = newCount;
+  }).count = input;
+  count.innerHTML = input;
 }
 
 const invoiceBtn = document.getElementById("invoice-btn");
