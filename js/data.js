@@ -265,8 +265,14 @@ const data = [
   },
   {
     name: "Fried/Cooked",
-    category: "Cooking Options",
+    category: "Options",
     unit: "unit",
     price: 0.5,
+  },
+  {
+    name: "Delivery",
+    category: "Options",
+    unit: "",
+    price: 3,
   },
 ];
