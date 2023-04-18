@@ -264,6 +264,12 @@ const data = [
     price: 6,
   },
   {
+    name: "Sauce",
+    category: "Options",
+    unit: "1L",
+    price: 5,
+  },
+  {
     name: "Fried/Cooked",
     category: "Options",
     unit: "unit",

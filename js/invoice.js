@@ -30,7 +30,7 @@ categories.forEach((category) => {
     section.innerHTML += `
       <div class="item">
         <div class="item-name">${item.name}</div>
-        <div class="item-price">${item.price}$ /${item.unit}</div>
+        <div class="item-price">${item.price}$ ${checkForUnit(item.unit)}</div>
         <div class="item-options">
           <span class="item-count">0</span> 
           <input type='number' class='input-nb'/>
@@ -41,6 +41,13 @@ categories.forEach((category) => {
   });
   mainDOM.appendChild(section);
 });
+
+function checkForUnit(unit) {
+  if (!unit) {
+    return "";
+  }
+  return `/${unit}`;
+}
 
 const buttons = mainDOM.querySelectorAll("button");
 buttons.forEach((btn) => btn.addEventListener("click", target));
