@@ -60,6 +60,12 @@ const data = [
     price: 5,
   },
   {
+    name: "Lahem 3ajin Special",
+    category: "Starters",
+    unit: "Dozen",
+    price: 6,
+  },
+  {
     name: "Spring Rolls",
     category: "Starters",
     unit: "Dozen",

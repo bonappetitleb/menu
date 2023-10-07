@@ -11,6 +11,31 @@ const dateInvoice = document.getElementById("date-invoice");
 const categories = [];
 const cart = [];
 
+const addFields = [null, null, null];
+
+const ef1_name = document.getElementById("ef1-name");
+const ef1_price = document.getElementById("ef1-price");
+const ef1_qtt = document.getElementById("ef1-qtt");
+const ef1_add = document.getElementById("ef1-add");
+const ef1_remove = document.getElementById("ef1-remove");
+const ef2_name = document.getElementById("ef2-name");
+const ef2_price = document.getElementById("ef2-price");
+const ef2_qtt = document.getElementById("ef2-qtt");
+const ef2_add = document.getElementById("ef2-add");
+const ef2_remove = document.getElementById("ef2-remove");
+const ef3_name = document.getElementById("ef3-name");
+const ef3_price = document.getElementById("ef3-price");
+const ef3_qtt = document.getElementById("ef3-qtt");
+const ef3_add = document.getElementById("ef3-add");
+const ef3_remove = document.getElementById("ef3-remove");
+
+ef1_add.addEventListener("click", addExtraFields);
+ef2_add.addEventListener("click", addExtraFields);
+ef3_add.addEventListener("click", addExtraFields);
+ef1_remove.addEventListener("click", removeExtraFields);
+ef2_remove.addEventListener("click", removeExtraFields);
+ef3_remove.addEventListener("click", removeExtraFields);
+
 data.forEach((item) => {
   if (!categories.includes(item.category)) {
     categories.push(item.category);
@@ -106,6 +131,20 @@ function printInvoice() {
         </tr>`;
     }
   });
+  Object.keys(addFields).forEach((item) => {
+    if (addFields[item] && addFields[item].count !== 0) {
+      TOTAL += addFields[item].price * addFields[item].count;
+      tableBodyDom.innerHTML += `
+        <tr>  
+          <td>${addFields[item].name}</td>
+          <td>${addFields[item].count}</td>
+          <td>${addFields[item].price}$</td>
+          <td>${toDecimalNumber(
+            addFields[item].price * addFields[item].count
+          )}$</td>
+        </tr>`;
+    }
+  });
   if (
     discountInput.value !== "" &&
     discountInput.value >= 0 &&
@@ -148,4 +187,69 @@ function formatDate(dateInput) {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const year = date.getFullYear().toString();
   return `${day}/${month}/${year}`;
+}
+
+function addExtraFields(e) {
+  const id = e.target.id;
+  const index = id.includes("1")
+    ? 0
+    : id.includes("2")
+    ? 1
+    : id.includes("3")
+    ? 2
+    : undefined;
+  if (index === 0 && ef1_name.value && ef1_price.value && ef1_qtt.value) {
+    addFields[index] = {
+      name: ef1_name.value,
+      category: "Extra Fields",
+      price: Number(ef1_price.value),
+      count: Number(ef1_qtt.value),
+    };
+  }
+  if (index === 1 && ef2_name.value && ef2_price.value && ef2_qtt.value) {
+    addFields[index] = {
+      name: ef2_name.value,
+      category: "Extra Fields",
+      price: Number(ef2_price.value),
+      count: Number(ef2_qtt.value),
+    };
+  }
+  if (index === 2 && ef3_name.value && ef3_price.value && ef3_qtt.value) {
+    addFields[index] = {
+      name: ef3_name.value,
+      category: "Extra Fields",
+      price: Number(ef3_price.value),
+      count: Number(ef3_qtt.value),
+    };
+  }
+}
+
+function removeExtraFields(e) {
+  const id = e.target.id;
+  const index = id.includes("1")
+    ? 0
+    : id.includes("2")
+    ? 1
+    : id.includes("3")
+    ? 2
+    : undefined;
+
+  if (index === 0) {
+    addFields[index] = null;
+    ef1_name.value = null;
+    ef1_price.value = null;
+    ef1_qtt.value = null;
+  }
+  if (index === 1 && ef2_name.value && ef2_price.value && ef2_qtt.value) {
+    addFields[index] = null;
+    ef2_name.value = null;
+    ef2_price.value = null;
+    ef2_qtt.value = null;
+  }
+  if (index === 2 && ef3_name.value && ef3_price.value && ef3_qtt.value) {
+    addFields[index] = null;
+    ef3_name.value = null;
+    ef3_price.value = null;
+    ef3_qtt.value = null;
+  }
 }

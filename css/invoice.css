@@ -135,6 +135,12 @@ section {
     right: calc((100vw - 400px) / 2);
   }
 }
+/* ======================== extra fields ======================= */
+.btn-cs {
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+}
 /* ======================== controller ======================= */
 input {
   display: block;
