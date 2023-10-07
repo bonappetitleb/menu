@@ -141,6 +141,9 @@ section {
   border: none;
   border-radius: 5px;
 }
+.btn-cs:active {
+  background-color: var(--btn-Hover-Bg);
+}
 /* ======================== controller ======================= */
 input {
   display: block;
