@@ -147,13 +147,13 @@ const data = [
     name: "Wara2 3enab Zet",
     category: "Main Dishes",
     unit: "kg",
-    price: 6,
+    price: 7,
   },
   {
     name: "Wara2 3enab Lahme",
     category: "Main Dishes",
     unit: "kg",
-    price: 9,
+    price: 10,
   },
   {
     name: "Kroket",
