@@ -339,19 +339,19 @@ const data = [
     name: "Ma3moul Joz",
     category: "Dessert",
     unit: "kg",
-    price: 10,
+    price: 12,
   },
   {
     name: "Ma3moul Tamer",
     category: "Dessert",
     unit: "kg",
-    price: 8,
+    price: 10,
   },
   {
     name: "Ma3moul Festok",
     category: "Dessert",
     unit: "kg",
-    price: 12,
+    price: 15,
   },
   {
     name: "Ma3kroun Sekar",
