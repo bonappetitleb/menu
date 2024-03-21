@@ -354,6 +354,12 @@ const data = [
     price: 15,
   },
   {
+    name: "Ma3moul Mchakal",
+    category: "Dessert",
+    unit: "kg",
+    price: 13,
+  },
+  {
     name: "Ma3kroun Sekar",
     category: "Dessert",
     unit: "kg",
