@@ -1,100 +1,112 @@
 const data = [
-  {
-    name: "Tuna Pizza",
-    category: "Lent",
-    unit: "Dozen",
-    price: 6,
-  },
-  {
-    name: "Ftayer Ton",
-    category: "Lent",
-    unit: "Dozen",
-    price: 5,
-  },{
-    name: "Ftayer Sbenegh",
-    category: "Lent",
-    unit: "Dozen",
-    price: 4,
-  },{
-    name: "Spring Rolls",
-    category: "Lent",
-    unit: "Dozen",
-    price: 4,
-  },{
-    name: "Zaatar",
-    category: "Lent",
-    unit: "Dozen",
-    price: 3,
-  },{
-    name: "Kebbet Rahib",
-    category: "Lent",
-    unit: "kg",
-    price: 6,
-  },{
-    name: "Mahshe Sele2",
-    category: "Lent",
-    unit: "kg",
-    price: 5,
-  },{
-    name: "Mahshe Malfouf",
-    category: "Lent",
-    unit: "kg",
-    price: 6,
-  },{
-    name: "Wara2 3enab Zet",
-    category: "Lent",
-    unit: "kg",
-    price: 7,
-  },{
-    name: "Samke Harra",
-    category: "Lent",
-    unit: "kg",
-    price: 10,
-  },{
-    name: "Fish Fingers",
-    category: "Lent",
-    unit: "kg",
-    price: 8,
-  },{
-    name: "Fish Escalope",
-    category: "Lent",
-    unit: "kg",
-    price: 9,
-  },{
-    name: "Kebbe Hemmous",
-    category: "Lent",
-    unit: "kg",
-    price: 6,
-  },{
-    name: "Kebbet Samak",
-    category: "Lent",
-    unit: "kg",
-    price: 10,
-  },{
-    name: "Ma3kroun B Sekar",
-    category: "Lent",
-    unit: "kg",
-    price: 5,
-  },{
-    name: "Ma3kroun B Joz",
-    category: "Lent",
-    unit: "kg",
-    price: 7,
-  },{
-    name: "3waymet",
-    category: "Lent",
-    unit: "kg",
-    price: 5,
-  },{
-    name: "Gateaux Syeme",
-    category: "Lent",
-    unit: "piece",
-    price: 8,
-  },
-
-
-
-
+  // {
+  //   name: "Tuna Pizza",
+  //   category: "Lent",
+  //   unit: "Dozen",
+  //   price: 6,
+  // },
+  // {
+  //   name: "Ftayer Ton",
+  //   category: "Lent",
+  //   unit: "Dozen",
+  //   price: 5,
+  // },
+  // {
+  //   name: "Ftayer Sbenegh",
+  //   category: "Lent",
+  //   unit: "Dozen",
+  //   price: 4,
+  // },
+  // {
+  //   name: "Spring Rolls",
+  //   category: "Lent",
+  //   unit: "Dozen",
+  //   price: 4,
+  // },
+  // {
+  //   name: "Zaatar",
+  //   category: "Lent",
+  //   unit: "Dozen",
+  //   price: 3,
+  // },
+  // {
+  //   name: "Kebbet Rahib",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 6,
+  // },
+  // {
+  //   name: "Mahshe Sele2",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 5,
+  // },
+  // {
+  //   name: "Mahshe Malfouf",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 6,
+  // },
+  // {
+  //   name: "Wara2 3enab Zet",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 7,
+  // },
+  // {
+  //   name: "Samke Harra",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 10,
+  // },
+  // {
+  //   name: "Fish Fingers",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 8,
+  // },
+  // {
+  //   name: "Fish Escalope",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 9,
+  // },
+  // {
+  //   name: "Kebbe Hemmous",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 6,
+  // },
+  // {
+  //   name: "Kebbet Samak",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 10,
+  // },
+  // {
+  //   name: "Ma3kroun B Sekar",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 5,
+  // },
+  // {
+  //   name: "Ma3kroun B Joz",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 7,
+  // },
+  // {
+  //   name: "3waymet",
+  //   category: "Lent",
+  //   unit: "kg",
+  //   price: 5,
+  // },
+  // {
+  //   name: "Gateaux Syeme",
+  //   category: "Lent",
+  //   unit: "piece",
+  //   price: 8,
+  // },
   {
     name: "Sambousik",
     category: "Starters",
