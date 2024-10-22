@@ -164,8 +164,7 @@ function sendLogData() {
       utm_medium: urlParams.get("utm_medium"),
       utm_campaign: urlParams.get("utm_campaign"),
     },
-    service: "external menu",
-    brand: "Bon appetit",
+    service: "66d739691389bc24cc9d540b",
   };
 }
 
