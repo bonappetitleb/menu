@@ -1,7 +1,7 @@
 loader();
 const mainDOM = document.getElementById("main");
 const menuHeaderDOM = document.getElementById("menu-header");
-const categories = [];
+const categories = sortedCategories.map((c) => c.label);
 
 document.title = MENU_DATA.store.storeName;
 
@@ -42,12 +42,6 @@ menuHeaderDOM.innerHTML = `
     }
   </span>
 `;
-
-data.forEach((item) => {
-  if (!categories.includes(item.category)) {
-    categories.push(item.category);
-  }
-});
 
 categories.forEach((category) => {
   const item0 = data.find((item) => item.category === category);
