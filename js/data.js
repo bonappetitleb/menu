@@ -111,9 +111,9 @@ const MENU_DATA = {
       "categoryId": null,
       "label": "Lent",
       "order": 0,
-      "hide": false,
+      "hide": true,
       "createdAt": "2024-12-11T23:20:55.053Z",
-      "updatedAt": "2024-12-15T01:06:20.866Z",
+      "updatedAt": "2024-12-15T01:56:59.488Z",
       "__v": 0,
       "bgImg": "img/background.jpeg",
       "img": null
