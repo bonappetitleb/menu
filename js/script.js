@@ -1,6 +1,47 @@
 loader();
 const mainDOM = document.getElementById("main");
+const menuHeaderDOM = document.getElementById("menu-header");
 const categories = [];
+
+document.title = MENU_DATA.store.storeName;
+
+if (MENU_DATA.store.storeLogo) {
+  const link = document.createElement("link");
+  link.rel = "shortcut icon";
+  link.href = MENU_DATA.store.storeLogo;
+  link.type = "image/x-icon";
+  document.head.appendChild(link);
+}
+
+menuHeaderDOM.innerHTML = `
+  ${
+    MENU_DATA.store.storeLogo
+      ? `<img src="${MENU_DATA.store.storeLogo}" id="main-img" />`
+      : ""
+  }
+  <p>${MENU_DATA.store.aboutUs}</p>
+  <span>
+    ${
+      MENU_DATA.store.sm?.instagramUrl
+        ? `
+      <a
+      id="instagram-a"
+      href="${MENU_DATA.store.sm?.instagramUrl}"
+      target="_blank">${instagramLogo}</a>
+      `
+        : ""
+    }
+    ${MENU_DATA.store.storeName}
+    ${
+      MENU_DATA.store.sm?.facebookUrl
+        ? `<a
+      id="fb-a"
+      href="${MENU_DATA.store.sm?.facebookUrl}"
+      target="_blank">${fbLogo}</a>`
+        : ""
+    }
+  </span>
+`;
 
 data.forEach((item) => {
   if (!categories.includes(item.category)) {
@@ -9,12 +50,16 @@ data.forEach((item) => {
 });
 
 categories.forEach((category) => {
+  const item0 = data.find((item) => item.category === category);
   const section = document.createElement("section");
   section.innerHTML += `
       <div class="title">  
         <div class="title-name">${category}</div>
-        <img src="img/background.jpeg" />
-        <img src="img/background.jpeg" />
+        ${
+          item0?.categoryBg
+            ? `<img src="${item0.categoryBg}" /><img src="${item0.categoryBg}" />`
+            : ""
+        }
       </div>
   `;
   const newItems = data.filter((item) => item.category === category);
@@ -42,14 +87,16 @@ let copy = document.getElementById("copy");
 copy.innerHTML = `&copy; ${date}`;
 
 //wp btn
-const wpBtn = document.getElementById("wp-btn");
 const appearPoint = window.innerHeight * 0.1;
 window.addEventListener("scroll", () => {
-  const scrollPosition = window.pageYOffset;
-  if (scrollPosition >= appearPoint) {
-    wpBtn.style.display = "flex";
-  } else {
-    wpBtn.style.display = "none";
+  const wpBtn = document.getElementById("wp-btn");
+  if (wpBtn) {
+    const scrollPosition = window.pageYOffset;
+    if (scrollPosition >= appearPoint) {
+      wpBtn.style.display = "flex";
+    } else {
+      wpBtn.style.display = "none";
+    }
   }
 });
 
@@ -78,6 +125,18 @@ function loader() {
     progressBar.style.width = `100%`;
     setTimeout(() => {
       content.style.display = "block";
+      const wpButton = document.createElement("div");
+      wpButton.innerHTML = MENU_DATA.store.sm?.whatsappUrl
+        ? `
+        <a
+          id="wp-a"
+          href="${MENU_DATA.store.sm.whatsappUrl}"
+          target="_blank">${wpLogo}</a>
+      `
+        : "";
+      wpButton.id = MENU_DATA.store.sm?.whatsappUrl ? "wp-btn" : "";
+      content.appendChild(wpButton);
+
       progressBar.parentElement.style.display = "none";
     }, 150);
   };
@@ -159,12 +218,7 @@ function sendLogData() {
     screenWidth: window.screen.width,
     screenHeight: window.screen.height,
     deviceOrientation: screen.orientation.type,
-    utmParameters: {
-      utm_source: urlParams.get("utm_source"),
-      utm_medium: urlParams.get("utm_medium"),
-      utm_campaign: urlParams.get("utm_campaign"),
-    },
-    service: "66d739691389bc24cc9d540b",
+    service: MENU_DATA.store.menuId,
   };
 }
 
