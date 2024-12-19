@@ -19,7 +19,7 @@ menuHeaderDOM.innerHTML = `
       ? `<img src="${MENU_DATA.store.storeLogo}" id="main-img" />`
       : ""
   }
-  <p>${MENU_DATA.store.aboutUs}</p>
+  <p>${MENU_DATA.store.quote}</p>
   <span>
     ${
       MENU_DATA.store.sm?.instagramUrl
