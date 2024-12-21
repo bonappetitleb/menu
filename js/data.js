@@ -1012,4 +1012,24 @@ const MENU_DATA = {
       "unit": "kg"
     }
   ]
-}; const sortedCategories = MENU_DATA.sub_categories   .filter((i) => !i.hide)   .sort((a, b) => a.order - b.order); const data = MENU_DATA.items   .sort((a, b) => a.order - b.order)   .map((i) => {     const category = sortedCategories.find((c) => c._id === i.subcategoryId);     if (category) {       return {         name: i.label,         category: category.label,         categoryBg: category.bgImg,         unit: i.unit,         price: i.price,       };     } else {       return undefined;     }   })   .filter((i) => i && !i.hide);
+};
+const sortedCategories = MENU_DATA.sub_categories
+  .filter((i) => !i.hide)
+  .sort((a, b) => a.order - b.order);
+const data = MENU_DATA.items
+  .sort((a, b) => a.order - b.order)
+  .map((i) => {
+    const category = sortedCategories.find((c) => c._id === i.subcategoryId);
+    if (category) {
+      return {
+        name: i.label,
+        category: category.label,
+        categoryBg: category.bgImg,
+        unit: i.unit,
+        price: i.price,
+      };
+    } else {
+      return undefined;
+    }
+  })
+  .filter((i) => i && !i.hide);
