@@ -29,6 +29,18 @@ const ef3_qtt = document.getElementById("ef3-qtt");
 const ef3_add = document.getElementById("ef3-add");
 const ef3_remove = document.getElementById("ef3-remove");
 
+if (MENU_DATA.store.storeLogo) {
+  const link = document.createElement("link");
+  link.rel = "shortcut icon";
+  link.href = MENU_DATA.store.storeLogo;
+  link.type = "image/x-icon";
+  document.head.appendChild(link);
+  const image = document.getElementById("invoice-image");
+  if (image) {
+    image.src = MENU_DATA.store.storeLogo;
+  }
+}
+
 ef1_add.addEventListener("click", addExtraFields);
 ef2_add.addEventListener("click", addExtraFields);
 ef3_add.addEventListener("click", addExtraFields);
