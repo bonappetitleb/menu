@@ -21,7 +21,7 @@ const MENU_DATA = {
     "aboutUs": "",
     "aboutUsTranslation": null,
     "createdAt": "2024-12-11T23:20:06.422Z",
-    "updatedAt": "2025-03-26T17:37:18.537Z",
+    "updatedAt": "2025-03-27T10:20:41.044Z",
     "__v": 0,
     "quote": "\" Where every meal is made with love just like at home \"",
     "templateId": "bonappetit"
@@ -36,7 +36,7 @@ const MENU_DATA = {
       "order": 1,
       "hide": false,
       "createdAt": "2024-12-11T23:10:57.949Z",
-      "updatedAt": "2025-03-26T17:37:19.091Z",
+      "updatedAt": "2025-03-27T10:20:41.596Z",
       "__v": 0,
       "bgImg": "",
       "img": null
@@ -49,7 +49,7 @@ const MENU_DATA = {
       "order": 2,
       "hide": false,
       "createdAt": "2024-12-11T23:11:04.038Z",
-      "updatedAt": "2025-03-26T17:37:19.364Z",
+      "updatedAt": "2025-03-27T10:20:41.873Z",
       "__v": 0,
       "bgImg": "",
       "img": null
@@ -62,7 +62,7 @@ const MENU_DATA = {
       "order": 3,
       "hide": false,
       "createdAt": "2024-12-11T23:11:10.653Z",
-      "updatedAt": "2025-03-26T17:37:19.636Z",
+      "updatedAt": "2025-03-27T10:20:42.147Z",
       "__v": 0,
       "bgImg": "",
       "img": null
@@ -75,7 +75,7 @@ const MENU_DATA = {
       "order": 4,
       "hide": false,
       "createdAt": "2024-12-11T23:11:16.388Z",
-      "updatedAt": "2025-03-26T17:37:19.908Z",
+      "updatedAt": "2025-03-27T10:20:42.422Z",
       "__v": 0,
       "bgImg": "",
       "img": null
@@ -86,9 +86,9 @@ const MENU_DATA = {
       "categoryId": null,
       "label": "Dessert",
       "order": 5,
-      "hide": false,
+      "hide": true,
       "createdAt": "2024-12-11T23:11:22.939Z",
-      "updatedAt": "2025-03-26T17:37:20.181Z",
+      "updatedAt": "2025-03-27T10:20:42.696Z",
       "__v": 0,
       "bgImg": "",
       "img": null
@@ -101,7 +101,7 @@ const MENU_DATA = {
       "order": 6,
       "hide": false,
       "createdAt": "2024-12-11T23:11:30.249Z",
-      "updatedAt": "2025-03-26T17:37:20.462Z",
+      "updatedAt": "2025-03-27T10:20:42.971Z",
       "__v": 0,
       "bgImg": "",
       "img": null
@@ -114,7 +114,7 @@ const MENU_DATA = {
       "order": 0,
       "hide": true,
       "createdAt": "2024-12-11T23:20:55.053Z",
-      "updatedAt": "2025-03-26T17:37:18.817Z",
+      "updatedAt": "2025-03-27T10:20:41.321Z",
       "__v": 0,
       "bgImg": "",
       "img": null
@@ -131,7 +131,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.499Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -145,7 +145,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.504Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -159,7 +159,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.506Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -173,7 +173,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.509Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -187,7 +187,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.510Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -201,7 +201,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.512Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -215,7 +215,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.513Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -229,7 +229,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.514Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -243,7 +243,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.515Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -257,7 +257,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.517Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -271,7 +271,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.518Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -285,7 +285,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.519Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -299,7 +299,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.520Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -313,7 +313,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.521Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -327,7 +327,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.523Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -341,7 +341,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.525Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -355,7 +355,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.527Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -369,7 +369,7 @@ const MENU_DATA = {
       "hide": false,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.528Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "piece"
     },
@@ -382,7 +382,7 @@ const MENU_DATA = {
       "price": 5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.529Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -395,7 +395,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.530Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -408,7 +408,7 @@ const MENU_DATA = {
       "price": 4,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.531Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -421,7 +421,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.532Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -434,7 +434,7 @@ const MENU_DATA = {
       "price": 5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.533Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -447,7 +447,7 @@ const MENU_DATA = {
       "price": 5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.534Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -460,7 +460,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.535Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -473,7 +473,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.536Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -486,7 +486,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.537Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -499,7 +499,7 @@ const MENU_DATA = {
       "price": 5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.538Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -512,7 +512,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.539Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -525,7 +525,7 @@ const MENU_DATA = {
       "price": 4,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.542Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -538,7 +538,7 @@ const MENU_DATA = {
       "price": 4,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.543Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -551,7 +551,7 @@ const MENU_DATA = {
       "price": 4,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.544Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "Dozen"
     },
@@ -564,7 +564,7 @@ const MENU_DATA = {
       "price": 15,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.545Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "4 Pers"
     },
@@ -577,7 +577,7 @@ const MENU_DATA = {
       "price": 15,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.546Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "4 Pers"
     },
@@ -590,7 +590,7 @@ const MENU_DATA = {
       "price": 15,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.547Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "4 Pers"
     },
@@ -603,7 +603,7 @@ const MENU_DATA = {
       "price": 10,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.548Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "4 Pers"
     },
@@ -616,7 +616,7 @@ const MENU_DATA = {
       "price": 10,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.549Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "4 Pers"
     },
@@ -629,7 +629,7 @@ const MENU_DATA = {
       "price": 12,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.550Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -642,7 +642,7 @@ const MENU_DATA = {
       "price": 13,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.551Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -655,7 +655,7 @@ const MENU_DATA = {
       "price": 2.5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.552Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "pc"
     },
@@ -668,7 +668,7 @@ const MENU_DATA = {
       "price": 3,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.553Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "pc"
     },
@@ -681,7 +681,7 @@ const MENU_DATA = {
       "price": 4,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.554Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -694,7 +694,7 @@ const MENU_DATA = {
       "price": 9,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.555Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -707,7 +707,7 @@ const MENU_DATA = {
       "price": 12,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.555Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -720,7 +720,7 @@ const MENU_DATA = {
       "price": 10,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.557Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -733,7 +733,7 @@ const MENU_DATA = {
       "price": 13,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.558Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -746,7 +746,7 @@ const MENU_DATA = {
       "price": 10,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.559Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -759,7 +759,7 @@ const MENU_DATA = {
       "price": 11,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.560Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -772,7 +772,7 @@ const MENU_DATA = {
       "price": 10,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.561Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -785,7 +785,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.562Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -798,7 +798,7 @@ const MENU_DATA = {
       "price": 9,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.563Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -811,7 +811,7 @@ const MENU_DATA = {
       "price": 4,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.563Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "100 pc"
     },
@@ -824,7 +824,7 @@ const MENU_DATA = {
       "price": 4.5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.564Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "100 pc"
     },
@@ -837,7 +837,7 @@ const MENU_DATA = {
       "price": 8,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.565Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "unit"
     },
@@ -850,7 +850,7 @@ const MENU_DATA = {
       "price": 10,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.566Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "unit"
     },
@@ -863,7 +863,7 @@ const MENU_DATA = {
       "price": 8,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.567Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -876,7 +876,7 @@ const MENU_DATA = {
       "price": 7,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.568Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -889,7 +889,7 @@ const MENU_DATA = {
       "price": 7,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.569Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "hide": false,
       "unit": "kg"
@@ -903,7 +903,7 @@ const MENU_DATA = {
       "price": 12,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.570Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -916,7 +916,7 @@ const MENU_DATA = {
       "price": 10,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.571Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -929,7 +929,7 @@ const MENU_DATA = {
       "price": 15,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.571Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -942,7 +942,7 @@ const MENU_DATA = {
       "price": 13,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.572Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -955,7 +955,7 @@ const MENU_DATA = {
       "price": 6,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.575Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -968,7 +968,7 @@ const MENU_DATA = {
       "price": 8,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.576Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "kg"
     },
@@ -981,7 +981,7 @@ const MENU_DATA = {
       "price": 5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.577Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "1L"
     },
@@ -994,7 +994,7 @@ const MENU_DATA = {
       "price": 0.5,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.578Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": "unit"
     },
@@ -1007,7 +1007,7 @@ const MENU_DATA = {
       "price": 3,
       "sizes": [],
       "createdAt": "2024-12-11T23:30:23.579Z",
-      "updatedAt": "2025-03-26T17:37:20.734Z",
+      "updatedAt": "2025-03-27T10:20:43.245Z",
       "__v": 0,
       "unit": ""
     }
