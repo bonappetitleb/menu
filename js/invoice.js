@@ -268,6 +268,12 @@ function removeExtraFields(e) {
 
 async function callLogApi() {
   try {
+    const params = new URLSearchParams(window.location.search);
+    const queryParams = {};
+    for (const [key, value] of params.entries()) {
+      queryParams[key] = value;
+    }
+
     const payload = {
       uuid: localStorage.getItem("uuid"),
       screenWidth: window.screen.width,
@@ -278,6 +284,8 @@ async function callLogApi() {
       platform: navigator.platform || "unknown",
       language: navigator.language || "unknown",
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      queryParams,
+      locationHref: location.href,
     };
 
     const response = await fetch(
