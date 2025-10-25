@@ -1037,6 +1037,7 @@ const sortedCategories = MENU_DATA.sub_categories
   .filter((i) => !i.hide)
   .sort((a, b) => a.order - b.order);
 const data = MENU_DATA.items
+.filter((i) => i && !i.hide)
   .sort((a, b) => a.order - b.order)
   .map((i) => {
     const category = sortedCategories.find((c) => c._id === i.subcategoryId);
