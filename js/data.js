@@ -1040,7 +1040,7 @@ const data = MENU_DATA.items
   .sort((a, b) => a.order - b.order)
   .map((i) => {
     const category = sortedCategories.find((c) => c._id === i.subcategoryId);
-    if (category) {
+    if (category && !i.hide) {
       return {
         name: i.label,
         category: category.label,
