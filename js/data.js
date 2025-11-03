@@ -1033,14 +1033,19 @@ const MENU_DATA = {
     }
   ]
 };
+
 const sortedCategories = MENU_DATA.sub_categories
-  .filter((i) => !i.hide)
+  .filter(
+    (c) =>
+      !c.hide &&
+      MENU_DATA?.items?.some((i) => i.subcategoryId === c._id && !i.hide)
+  )
   .sort((a, b) => a.order - b.order);
+
 const data = MENU_DATA.items
-.filter((i) => i && !i.hide)
-  .sort((a, b) => a.order - b.order)
   .map((i) => {
     const category = sortedCategories.find((c) => c._id === i.subcategoryId);
+
     if (category && !i.hide) {
       return {
         name: i.label,
@@ -1053,4 +1058,5 @@ const data = MENU_DATA.items
       return undefined;
     }
   })
-  .filter((i) => i && !i.hide);
+  .filter((i) => i && !i.hide)
+  .sort((a, b) => a.order - b.order);
