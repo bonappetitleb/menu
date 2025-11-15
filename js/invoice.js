@@ -162,6 +162,19 @@ document.addEventListener('input', (e) => {
 	cleanLiveNumberInput(e.target);
 });
 
+discountTypeEl.addEventListener('change', () => {
+	// Reset the value if switching to percent with an invalid value
+	if (discountTypeEl.value === 'percent') {
+		const v = parseFloat(discountValueEl.value);
+		if (v > 100) {
+			discountValueEl.value = '';
+		}
+	}
+
+	saveState();
+	printInvoice();
+});
+
 /*****************************************************
  * GLOBAL BLUR HANDLER
  *****************************************************/
@@ -169,7 +182,17 @@ document.addEventListener(
 	'blur',
 	(e) => {
 		if (!e.target.classList.contains('num-input')) return;
-		const n = finalizeNumber(e.target);
+
+		let n = finalizeNumber(e.target);
+
+		// LIMIT PERCENT DISCOUNT
+		if (e.target.id === 'discount-value' && discountTypeEl.value === 'percent') {
+			if (n > 100) {
+				n = 100;
+				e.target.value = '100.00';
+			}
+		}
+
 		updateNumberModel(e.target, n);
 		saveState();
 		printInvoice();
@@ -272,9 +295,24 @@ function renderExtraFields() {
 
 		row.innerHTML = `
 			<div class="extra-row-inputs">
-				<input name="extra-name" class="extra-name" placeholder="Name" value="${ef.name}" />
-				<input name="extra-price" class="extra-price num-input" placeholder="Price" inputmode="decimal" value="${ef.price || ''}" />
-				<input name="extra-qty" class="extra-qty num-input" placeholder="Qty" inputmode="decimal" value="${ef.count || ''}" />
+				<div class="form-floating extra-floating">
+					<input type="text" name="extra-name" class="form-control extra-name" placeholder="Name" autocomplete="off" value="${ef.name}"/>
+					<label>Name</label>
+				</div>
+
+				<div class="form-floating extra-floating">
+					<input type="text" name="extra-price" class="form-control extra-price num-input" placeholder="Price" autocomplete="off" inputmode="decimal" value="${
+						ef.price || ''
+					}"/>
+					<label>Price</label>
+				</div>
+
+				<div class="form-floating extra-floating">
+					<input type="text" name="extra-qty" class="form-control extra-qty num-input" placeholder="Qty" autocomplete="off" inputmode="decimal" value="${
+						ef.count || ''
+					}"/>
+					<label>Qty</label>
+				</div>
 			</div>
 
 			<button class="extra-remove btn-cs">X</button>
@@ -283,6 +321,41 @@ function renderExtraFields() {
 		extraFieldsContainer.appendChild(row);
 	});
 }
+
+/*****************************************************
+ * EXTRA FIELDS – LIVE UPDATE
+ *****************************************************/
+extraFieldsContainer.addEventListener('input', (e) => {
+	const row = e.target.closest('.extra-row');
+	if (!row) return;
+
+	const id = row.dataset.id;
+	const ef = extraFields.find((x) => x.id === id);
+	if (!ef) return;
+
+	// Name field
+	if (e.target.classList.contains('extra-name')) {
+		ef.name = e.target.value;
+		saveState();
+		printInvoice();
+		return;
+	}
+
+	// Price or Qty fields
+	if (e.target.classList.contains('num-input')) {
+		const liveValue = e.target.value;
+		cleanLiveNumberInput(e.target); // format while typing
+
+		let n = parseFloat(e.target.value);
+		if (isNaN(n)) n = 0;
+
+		if (e.target.classList.contains('extra-price')) ef.price = n;
+		if (e.target.classList.contains('extra-qty')) ef.count = n;
+
+		saveState();
+		printInvoice();
+	}
+});
 
 extraFieldsContainer.addEventListener('click', (e) => {
 	if (!e.target.classList.contains('extra-remove')) return;
@@ -440,3 +513,41 @@ function formatDate(iso) {
 	const d = new Date(iso);
 	return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
 }
+
+/*****************************************************
+ * LOGGING
+ *****************************************************/
+async function callLogApi() {
+	try {
+		const params = new URLSearchParams(window.location.search);
+		const queryParams = {};
+		for (const [key, value] of params.entries()) {
+			queryParams[key] = value;
+		}
+
+		const payload = {
+			uuid: localStorage.getItem('uuid'),
+			screenWidth: window.screen.width,
+			screenHeight: window.screen.height,
+			deviceOrientation: screen.orientation?.type || 'unknown',
+			service: '67eecd81e6108b1d259e624d',
+
+			platform: navigator.platform || 'unknown',
+			language: navigator.language || 'unknown',
+			timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+			queryParams,
+			locationHref: location.href,
+		};
+
+		const response = await fetch('https://main-server-u49f.onrender.com/api/v1/ks-solutions/logs', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(payload),
+		});
+
+		const uuid = await response.text();
+		localStorage.setItem('uuid', uuid);
+	} catch {}
+}
+
+callLogApi();
