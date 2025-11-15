@@ -1,305 +1,442 @@
-const mainDOM = document.getElementById("main");
-const tableBodyDom = document.getElementById("table-body");
-const tableFooterDom = document.getElementById("table-footer");
-const nameInput = document.getElementById("name-input");
-const phoneInput = document.getElementById("phone-input");
-const dateInput = document.getElementById("date-input");
-const discountInput = document.getElementById("discount-input");
-const nameInvoice = document.getElementById("name-invoice");
-const phoneInvoice = document.getElementById("phone-invoice");
-const dateInvoice = document.getElementById("date-invoice");
+const STORAGE_KEY = 'invoice_state_v2';
+
+/* DOM REFS */
+const mainDOM = document.getElementById('main');
+const tableBodyDom = document.getElementById('table-body');
+const tableFooterDom = document.getElementById('table-footer');
+
+const nameInput = document.getElementById('name-input');
+const phoneInput = document.getElementById('phone-input');
+const dateInput = document.getElementById('date-input');
+
+const discountTypeEl = document.getElementById('discount-type');
+const discountValueEl = document.getElementById('discount-value');
+
+const nameInvoice = document.getElementById('name-invoice');
+const phoneInvoice = document.getElementById('phone-invoice');
+const dateInvoice = document.getElementById('date-invoice');
+const storeNameEl = document.getElementById('store-name');
+
+const extraFieldsContainer = document.getElementById('extra-fields-container');
+const addExtraFieldBtn = document.getElementById('add-extra-field');
+const resetBtn = document.getElementById('reset-btn');
+
+/* STATE */
 const categories = [];
 const cart = [];
+let extraFields = [];
 
-const addFields = [null, null, null];
+/*****************************************************
+ * STORE INFO
+ *****************************************************/
+(function initStoreInfo() {
+	try {
+		if (MENU_DATA?.store) {
+			storeNameEl.textContent = MENU_DATA.store.storeName || '';
+			document.getElementById('invoice-image').src = MENU_DATA.store.storeLogo || '';
+		}
+	} catch {}
+})();
 
-const ef1_name = document.getElementById("ef1-name");
-const ef1_price = document.getElementById("ef1-price");
-const ef1_qtt = document.getElementById("ef1-qtt");
-const ef1_add = document.getElementById("ef1-add");
-const ef1_remove = document.getElementById("ef1-remove");
-const ef2_name = document.getElementById("ef2-name");
-const ef2_price = document.getElementById("ef2-price");
-const ef2_qtt = document.getElementById("ef2-qtt");
-const ef2_add = document.getElementById("ef2-add");
-const ef2_remove = document.getElementById("ef2-remove");
-const ef3_name = document.getElementById("ef3-name");
-const ef3_price = document.getElementById("ef3-price");
-const ef3_qtt = document.getElementById("ef3-qtt");
-const ef3_add = document.getElementById("ef3-add");
-const ef3_remove = document.getElementById("ef3-remove");
-
-if (MENU_DATA.store.storeLogo) {
-  const link = document.createElement("link");
-  link.rel = "shortcut icon";
-  link.href = MENU_DATA.store.storeLogo;
-  link.type = "image/x-icon";
-  document.head.appendChild(link);
-  const image = document.getElementById("invoice-image");
-  if (image) {
-    image.src = MENU_DATA.store.storeLogo;
-  }
-}
-
-ef1_add.addEventListener("click", addExtraFields);
-ef2_add.addEventListener("click", addExtraFields);
-ef3_add.addEventListener("click", addExtraFields);
-ef1_remove.addEventListener("click", removeExtraFields);
-ef2_remove.addEventListener("click", removeExtraFields);
-ef3_remove.addEventListener("click", removeExtraFields);
-
+/*****************************************************
+ * BUILD MENU
+ *****************************************************/
 data.forEach((item) => {
-  if (!categories.includes(item.category)) {
-    categories.push(item.category);
-  }
-  cart.push({ ...item, count: 0 });
+	if (!categories.includes(item.category)) categories.push(item.category);
+	cart.push({ ...item, count: 0 });
 });
 
 categories.forEach((category) => {
-  const section = document.createElement("section");
-  section.innerHTML += `
-      <div class="title">  
-        <div class="title-name">${category}</div>
-      </div>
-  `;
-  const newItems = data.filter((item) => item.category === category);
-  newItems.forEach((item) => {
-    section.innerHTML += `
-      <div class="item">
-        <div class="item-name">${item.name}</div>
-        <div class="item-price">${item.price}$ ${checkForUnit(item.unit)}</div>
-        <div class="item-options">
-          <span class="item-count">0</span> 
-          <input type='number' class='input-nb'/>
-          <button class="add">add</button>
-        </div>
-      </div>
-  `;
-  });
-  mainDOM.appendChild(section);
+	const section = document.createElement('section');
+	section.innerHTML = `
+		<div class="title"><div class="title-name">${category}</div></div>
+	`;
+
+	data.filter((i) => i.category === category).forEach((item) => {
+		section.innerHTML += `
+			<div class="item">
+				<div>
+					<div class="item-name">${item.name}</div>
+					<div class="item-price">${item.price}$ ${item.unit ? '/' + item.unit : ''}</div>
+				</div>
+
+				<div class="item-options">
+					<button class="minus">-</button>
+					<input class="input-nb num-input" placeholder="0" inputmode="decimal" />
+					<button class="plus">+</button>
+				</div>
+			</div>
+		`;
+	});
+
+	mainDOM.appendChild(section);
 });
 
-function checkForUnit(unit) {
-  if (!unit) {
-    return "";
-  }
-  return `/${unit}`;
+/*****************************************************
+ * UNIVERSAL NUMBER INPUT SANITIZER (LIVE)
+ *****************************************************/
+function cleanLiveNumberInput(el) {
+	let v = el.value;
+
+	// Remove invalid chars
+	v = v.replace(/[^0-9.]/g, '');
+
+	// Only first dot allowed
+	const firstDot = v.indexOf('.');
+	if (firstDot !== -1) {
+		v = v.slice(0, firstDot + 1) + v.slice(firstDot + 1).replace(/\./g, '');
+	}
+
+	// ".5" → "0.5"
+	if (v.startsWith('.')) v = '0' + v;
+
+	// "00" → "0"
+	if (/^0\d/.test(v) && !v.startsWith('0.')) {
+		v = String(Number(v));
+	}
+
+	el.value = v;
 }
 
-const buttons = mainDOM.querySelectorAll("button");
-buttons.forEach((btn) => btn.addEventListener("click", target));
+/*****************************************************
+ * FINALIZE INPUT ON BLUR (FORMAT TO 2 DECIMALS)
+ *****************************************************/
+function finalizeNumber(el) {
+	let v = el.value;
 
-function target(e) {
-  const btn = e.target;
-  const count = btn.parentElement.querySelector(".item-count");
-  const input = Number(btn.parentElement.querySelector(".input-nb").value);
-  if (input < 0) return;
-  const parent = btn.parentElement.parentElement;
-  const title = parent.parentElement.querySelector(".title-name").textContent;
-  const itemName = parent.querySelector(".item-name").textContent;
-  if (btn.classList.contains("add")) add(itemName, input, title, count);
+	if (!v || v === '.' || v === '0.') {
+		el.value = '';
+		return 0;
+	}
+
+	let n = parseFloat(v);
+	if (isNaN(n) || n < 0) {
+		el.value = '';
+		return 0;
+	}
+
+	el.value = n.toFixed(2);
+	return n;
 }
 
-function add(itemName, input, title, count) {
-  count.textContent = input;
-  cart.find((item) => {
-    return item.name == itemName && item.category == title;
-  }).count = input;
-  count.innerHTML = input;
+/*****************************************************
+ * UPDATE MODEL WHEN NUMBER CHANGES
+ *****************************************************/
+function updateNumberModel(el, n) {
+	/* DISCOUNT */
+	if (el.id === 'discount-value') {
+		discountValueEl.value = n ? n.toFixed(2) : '';
+		return;
+	}
+
+	/* MENU ITEMS */
+	if (el.classList.contains('input-nb')) {
+		const itemEl = el.closest('.item');
+		const secEl = el.closest('section');
+
+		const name = itemEl.querySelector('.item-name').textContent;
+		const cat = secEl.querySelector('.title-name').textContent;
+
+		const c = cart.find((x) => x.name === name && x.category === cat);
+		c.count = n;
+
+		return;
+	}
+
+	/* EXTRA FIELDS */
+	if (el.classList.contains('extra-price') || el.classList.contains('extra-qty')) {
+		const row = el.closest('.extra-row');
+		const ef = extraFields.find((x) => x.id === row.dataset.id);
+
+		if (el.classList.contains('extra-price')) ef.price = n;
+		if (el.classList.contains('extra-qty')) ef.count = n;
+		return;
+	}
 }
 
-const invoiceBtn = document.getElementById("invoice-btn");
-invoiceBtn.addEventListener("click", printInvoice);
+/*****************************************************
+ * GLOBAL LIVE INPUT HANDLER
+ *****************************************************/
+document.addEventListener('input', (e) => {
+	if (!e.target.classList.contains('num-input')) return;
+	cleanLiveNumberInput(e.target);
+});
 
+/*****************************************************
+ * GLOBAL BLUR HANDLER
+ *****************************************************/
+document.addEventListener(
+	'blur',
+	(e) => {
+		if (!e.target.classList.contains('num-input')) return;
+		const n = finalizeNumber(e.target);
+		updateNumberModel(e.target, n);
+		saveState();
+		printInvoice();
+	},
+	true,
+);
+
+/*****************************************************
+ * DISCOUNT LOGIC
+ *****************************************************/
+function calculateDiscount(total) {
+	const type = discountTypeEl.value;
+	const raw = parseFloat(discountValueEl.value || 0);
+
+	if (!raw) return { net: total, discountAmount: 0, display: '' };
+
+	if (type === 'percent') {
+		const p = Math.min(100, Math.max(0, raw));
+		const d = (total * p) / 100;
+		return { net: total - d, discountAmount: d, display: p + '%' };
+	}
+
+	const usd = Math.max(0, raw);
+	const d = Math.min(total, usd);
+	return { net: total - d, discountAmount: d, display: usd + '$' };
+}
+
+/*****************************************************
+ * SAVE / LOAD
+ *****************************************************/
+function saveState() {
+	const s = {
+		name: nameInput.value,
+		phone: phoneInput.value,
+		date: dateInput.value,
+		discountType: discountTypeEl.value,
+		discountValue: discountValueEl.value,
+		cart,
+		extraFields,
+	};
+	sessionStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+}
+
+function loadState() {
+	const raw = sessionStorage.getItem(STORAGE_KEY);
+	if (!raw) return printInvoice();
+
+	try {
+		const s = JSON.parse(raw);
+
+		nameInput.value = s.name ?? '';
+		phoneInput.value = s.phone ?? '';
+		dateInput.value = s.date ?? '';
+		discountTypeEl.value = s.discountType ?? 'usd';
+		discountValueEl.value = s.discountValue ?? '';
+
+		if (Array.isArray(s.cart)) {
+			s.cart.forEach((saved) => {
+				const c = cart.find((x) => x.name === saved.name && x.category === saved.category);
+				if (c) c.count = saved.count;
+			});
+		}
+
+		extraFields = s.extraFields ?? [];
+		renderExtraFields();
+		updateMenuDomCounts();
+	} catch {}
+
+	printInvoice();
+}
+
+function updateMenuDomCounts() {
+	cart.forEach((item) => {
+		document.querySelectorAll('section').forEach((sec) => {
+			if (sec.querySelector('.title-name')?.textContent !== item.category) return;
+
+			sec.querySelectorAll('.item').forEach((el) => {
+				if (el.querySelector('.item-name').textContent !== item.name) return;
+
+				el.querySelector('.input-nb').value = item.count ? item.count.toFixed(2) : '';
+			});
+		});
+	});
+}
+
+/*****************************************************
+ * EXTRA FIELDS
+ *****************************************************/
+function generateId() {
+	return 'id_' + Math.random().toString(16).slice(2);
+}
+
+function renderExtraFields() {
+	extraFieldsContainer.innerHTML = '';
+
+	extraFields.forEach((ef) => {
+		const row = document.createElement('div');
+		row.className = 'extra-row';
+		row.dataset.id = ef.id;
+
+		row.innerHTML = `
+			<div class="extra-row-inputs">
+				<input name="extra-name" class="extra-name" placeholder="Name" value="${ef.name}" />
+				<input name="extra-price" class="extra-price num-input" placeholder="Price" inputmode="decimal" value="${ef.price || ''}" />
+				<input name="extra-qty" class="extra-qty num-input" placeholder="Qty" inputmode="decimal" value="${ef.count || ''}" />
+			</div>
+
+			<button class="extra-remove btn-cs">X</button>
+		`;
+
+		extraFieldsContainer.appendChild(row);
+	});
+}
+
+extraFieldsContainer.addEventListener('click', (e) => {
+	if (!e.target.classList.contains('extra-remove')) return;
+
+	const id = e.target.closest('.extra-row').dataset.id;
+	extraFields = extraFields.filter((x) => x.id !== id);
+
+	renderExtraFields();
+	saveState();
+	printInvoice();
+});
+
+addExtraFieldBtn.addEventListener('click', () => {
+	extraFields.push({ id: generateId(), name: '', price: 0, count: 0 });
+	renderExtraFields();
+	saveState();
+});
+
+/*****************************************************
+ * MENU BUTTONS
+ *****************************************************/
+mainDOM.addEventListener('click', (e) => {
+	if (!e.target.classList.contains('plus') && !e.target.classList.contains('minus')) return;
+
+	const itemEl = e.target.closest('.item');
+	const secEl = e.target.closest('section');
+
+	const name = itemEl.querySelector('.item-name').textContent;
+	const cat = secEl.querySelector('.title-name').textContent;
+
+	const c = cart.find((x) => x.name === name && x.category === cat);
+
+	let v = c.count || 0;
+	if (e.target.classList.contains('plus')) v += 1;
+	if (e.target.classList.contains('minus')) v = Math.max(0, v - 1);
+
+	c.count = v;
+
+	itemEl.querySelector('.input-nb').value = v ? v.toFixed(2) : '';
+
+	saveState();
+	printInvoice();
+});
+
+/*****************************************************
+ * GENERAL INPUTS
+ *****************************************************/
+[nameInput, phoneInput, dateInput].forEach((el) => {
+	el.addEventListener('input', () => {
+		saveState();
+		printInvoice();
+	});
+});
+
+/*****************************************************
+ * PRINT INVOICE
+ *****************************************************/
 function printInvoice() {
-  tableBodyDom.innerHTML = "";
-  tableFooterDom.innerHTML = "";
-  let TOTAL = 0;
-  if (nameInput.value !== "") {
-    nameInvoice.innerHTML = `Name: ${nameInput.value}`;
-  } else {
-    nameInvoice.innerHTML = ``;
-  }
-  if (phoneInput.value !== "") {
-    phoneInvoice.innerHTML = `Phone: ${phoneInput.value}`;
-  } else {
-    phoneInvoice.innerHTML = ``;
-  }
-  if (dateInput.value !== "") {
-    dateInvoice.innerHTML = `Date: ${formatDate(dateInput.value)}`;
-  } else {
-    dateInvoice.innerHTML = ``;
-  }
+	tableBodyDom.innerHTML = '';
+	tableFooterDom.innerHTML = '';
 
-  Object.keys(cart).forEach((item) => {
-    if (cart[item].count !== 0) {
-      TOTAL += cart[item].price * cart[item].count;
-      tableBodyDom.innerHTML += `
-        <tr>  
-          <td>${cart[item].name}</td>
-          <td>${cart[item].count}</td>
-          <td>${cart[item].price}$</td>
-          <td>${toDecimalNumber(cart[item].price * cart[item].count)}$</td>
-        </tr>`;
-    }
-  });
-  Object.keys(addFields).forEach((item) => {
-    if (addFields[item] && addFields[item].count !== 0) {
-      TOTAL += addFields[item].price * addFields[item].count;
-      tableBodyDom.innerHTML += `
-        <tr>  
-          <td>${addFields[item].name}</td>
-          <td>${addFields[item].count}</td>
-          <td>${addFields[item].price}$</td>
-          <td>${toDecimalNumber(
-            addFields[item].price * addFields[item].count
-          )}$</td>
-        </tr>`;
-    }
-  });
-  if (
-    discountInput.value !== "" &&
-    discountInput.value >= 0 &&
-    discountInput.value <= 100
-  ) {
-    tableFooterDom.innerHTML = `
-      <tr>
-        <td colspan="3">Total</td>
-        <td>${toDecimalNumber(TOTAL)}$</td>
-      </tr>
-      <tr>
-        <td colspan="2">Discount</td>
-        <td>${discountInput.value}%</td>
-        <td>${toDecimalNumber(
-          (TOTAL * Number(discountInput.value)) / 100
-        )}$</td>
-      </tr>
-      <tr>
-        <td colspan="3">Net Total</td>
-        <td>${toDecimalNumber(
-          TOTAL - (TOTAL * Number(discountInput.value)) / 100
-        )}$</td>
-      </tr> `;
-  } else {
-    tableFooterDom.innerHTML = `
-      <tr>
-        <td colspan="3">Total</td>
-        <td>${toDecimalNumber(TOTAL)}$</td>
-      </tr>`;
-  }
+	let total = 0;
+
+	nameInvoice.textContent = nameInput.value ? 'Name: ' + nameInput.value : '';
+	phoneInvoice.textContent = phoneInput.value ? 'Phone: ' + phoneInput.value : '';
+	dateInvoice.textContent = dateInput.value ? 'Date: ' + formatDate(dateInput.value) : '';
+
+	cart.forEach((c) => {
+		if (!c.count) return;
+
+		const line = c.count * c.price;
+		total += line;
+
+		tableBodyDom.innerHTML += `
+			<tr>
+				<td>${c.name}</td>
+				<td>${c.count.toFixed(2)}</td>
+				<td>${c.price.toFixed(2)}$</td>
+				<td>${line.toFixed(2)}$</td>
+			</tr>
+		`;
+	});
+
+	extraFields.forEach((ef) => {
+		if (!ef.name || !ef.count) return;
+
+		const line = ef.price * ef.count;
+		total += line;
+
+		tableBodyDom.innerHTML += `
+			<tr>
+				<td>${ef.name}</td>
+				<td>${ef.count.toFixed(2)}</td>
+				<td>${ef.price.toFixed(2)}$</td>
+				<td>${line.toFixed(2)}$</td>
+			</tr>
+		`;
+	});
+
+	const d = calculateDiscount(total);
+
+	let footer = `
+		<tr><td colspan="3">Total</td><td>${total.toFixed(2)}$</td></tr>
+	`;
+
+	if (d.discountAmount > 0) {
+		footer += `
+			<tr>
+				<td colspan="2">Discount</td>
+				<td>${d.display}</td>
+				<td>${d.discountAmount.toFixed(2)}$</td>
+			</tr>
+			<tr>
+				<td colspan="3">Net Total</td>
+				<td>${d.net.toFixed(2)}$</td>
+			</tr>
+		`;
+	}
+
+	tableFooterDom.innerHTML = footer;
 }
 
-function toDecimalNumber(num) {
-  return num.toFixed(2).padEnd(num.toFixed(2).indexOf(".") + 3, "0");
+/*****************************************************
+ * RESET
+ *****************************************************/
+resetBtn.addEventListener('click', () => {
+	if (!confirm('Reset everything?')) return;
+
+	sessionStorage.removeItem(STORAGE_KEY);
+
+	nameInput.value = '';
+	phoneInput.value = '';
+	dateInput.value = '';
+
+	discountTypeEl.value = 'usd';
+	discountValueEl.value = '';
+
+	cart.forEach((c) => (c.count = 0));
+	extraFields = [];
+
+	updateMenuDomCounts();
+	renderExtraFields();
+	printInvoice();
+});
+
+/*****************************************************
+ * INIT
+ *****************************************************/
+loadState();
+
+/*****************************************************
+ * DATE FORMAT HELP
+ *****************************************************/
+function formatDate(iso) {
+	const d = new Date(iso);
+	return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
 }
-
-function formatDate(dateInput) {
-  const date = new Date(dateInput);
-  const day = date.getDate().toString().padStart(2, "0");
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const year = date.getFullYear().toString();
-  return `${day}/${month}/${year}`;
-}
-
-function addExtraFields(e) {
-  const id = e.target.id;
-  const index = id.includes("1")
-    ? 0
-    : id.includes("2")
-    ? 1
-    : id.includes("3")
-    ? 2
-    : undefined;
-  if (index === 0 && ef1_name.value && ef1_price.value && ef1_qtt.value) {
-    addFields[index] = {
-      name: ef1_name.value,
-      category: "Extra Fields",
-      price: Number(ef1_price.value),
-      count: Number(ef1_qtt.value),
-    };
-  }
-  if (index === 1 && ef2_name.value && ef2_price.value && ef2_qtt.value) {
-    addFields[index] = {
-      name: ef2_name.value,
-      category: "Extra Fields",
-      price: Number(ef2_price.value),
-      count: Number(ef2_qtt.value),
-    };
-  }
-  if (index === 2 && ef3_name.value && ef3_price.value && ef3_qtt.value) {
-    addFields[index] = {
-      name: ef3_name.value,
-      category: "Extra Fields",
-      price: Number(ef3_price.value),
-      count: Number(ef3_qtt.value),
-    };
-  }
-}
-
-function removeExtraFields(e) {
-  const id = e.target.id;
-  const index = id.includes("1")
-    ? 0
-    : id.includes("2")
-    ? 1
-    : id.includes("3")
-    ? 2
-    : undefined;
-
-  if (index === 0) {
-    addFields[index] = null;
-    ef1_name.value = null;
-    ef1_price.value = null;
-    ef1_qtt.value = null;
-  }
-  if (index === 1 && ef2_name.value && ef2_price.value && ef2_qtt.value) {
-    addFields[index] = null;
-    ef2_name.value = null;
-    ef2_price.value = null;
-    ef2_qtt.value = null;
-  }
-  if (index === 2 && ef3_name.value && ef3_price.value && ef3_qtt.value) {
-    addFields[index] = null;
-    ef3_name.value = null;
-    ef3_price.value = null;
-    ef3_qtt.value = null;
-  }
-}
-
-async function callLogApi() {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const queryParams = {};
-    for (const [key, value] of params.entries()) {
-      queryParams[key] = value;
-    }
-
-    const payload = {
-      uuid: localStorage.getItem("uuid"),
-      screenWidth: window.screen.width,
-      screenHeight: window.screen.height,
-      deviceOrientation: screen.orientation?.type || "unknown",
-      service: "67eecd81e6108b1d259e624d",
-
-      platform: navigator.platform || "unknown",
-      language: navigator.language || "unknown",
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      queryParams,
-      locationHref: location.href,
-    };
-
-    const response = await fetch(
-      "https://main-server-u49f.onrender.com/api/v1/ks-solutions/logs",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }
-    );
-
-    const uuid = await response.text();
-    localStorage.setItem("uuid", uuid);
-  } catch {}
-}
-
-callLogApi();
