@@ -8,6 +8,7 @@ const tableFooterDom = document.getElementById('table-footer');
 const nameInput = document.getElementById('name-input');
 const phoneInput = document.getElementById('phone-input');
 const dateInput = document.getElementById('date-input');
+const thanksInput = document.getElementById('thanks-input');
 
 const discountTypeEl = document.getElementById('discount-type');
 const discountValueEl = document.getElementById('discount-value');
@@ -15,6 +16,7 @@ const discountValueEl = document.getElementById('discount-value');
 const nameInvoice = document.getElementById('name-invoice');
 const phoneInvoice = document.getElementById('phone-invoice');
 const dateInvoice = document.getElementById('date-invoice');
+const thanksInvoice = document.getElementById('thanks-invoice');
 const storeNameEl = document.getElementById('store-name');
 
 const extraFieldsContainer = document.getElementById('extra-fields-container');
@@ -232,6 +234,7 @@ function saveState() {
 		name: nameInput.value,
 		phone: phoneInput.value,
 		date: dateInput.value,
+		thanks: thanksInput.value,
 		discountType: discountTypeEl.value,
 		discountValue: discountValueEl.value,
 		cart,
@@ -251,6 +254,7 @@ function loadState() {
 		phoneInput.value = s.phone ?? '';
 		dateInput.value = s.date ?? '';
 		discountTypeEl.value = s.discountType ?? 'usd';
+		thanksInput.value = s.thanks ?? '';
 		discountValueEl.value = s.discountValue ?? '';
 
 		if (Array.isArray(s.cart)) {
@@ -409,7 +413,7 @@ mainDOM.addEventListener('click', (e) => {
 /*****************************************************
  * GENERAL INPUTS
  *****************************************************/
-[nameInput, phoneInput, dateInput].forEach((el) => {
+[nameInput, phoneInput, dateInput, thanksInput].forEach((el) => {
 	el.addEventListener('input', () => {
 		saveState();
 		printInvoice();
@@ -428,6 +432,7 @@ function printInvoice() {
 	nameInvoice.textContent = nameInput.value ? 'Name: ' + nameInput.value : '';
 	phoneInvoice.textContent = phoneInput.value ? 'Phone: ' + phoneInput.value : '';
 	dateInvoice.textContent = dateInput.value ? 'Date: ' + formatDate(dateInput.value) : '';
+	thanksInvoice.textContent = thanksInput.value ? thanksInput.value : '';
 
 	cart.forEach((c) => {
 		if (!c.count) return;
@@ -502,6 +507,7 @@ confirmOk.addEventListener('click', () => {
 	nameInput.value = '';
 	phoneInput.value = '';
 	dateInput.value = '';
+	thanksInput.value = 'Thank you for choosing us';
 
 	discountTypeEl.value = 'usd';
 	discountValueEl.value = '';
