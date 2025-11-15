@@ -219,3 +219,50 @@ tfoot {
 	border-top: var(--row-border);
 	font-weight: bold;
 }
+
+/* ====================== SIMPLE MODAL ====================== */
+
+.confirm-modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.45);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	transition: opacity 0.2s ease;
+}
+
+.confirm-modal.hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.confirm-modal-content {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 350px;
+	text-align: center;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+	from {
+		transform: scale(0.85);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.confirm-modal-actions {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}

@@ -21,6 +21,10 @@ const extraFieldsContainer = document.getElementById('extra-fields-container');
 const addExtraFieldBtn = document.getElementById('add-extra-field');
 const resetBtn = document.getElementById('reset-btn');
 
+const confirmModal = document.getElementById('confirm-modal');
+const confirmOk = document.getElementById('confirm-ok');
+const confirmCancel = document.getElementById('confirm-cancel');
+
 /* STATE */
 const categories = [];
 const cart = [];
@@ -62,7 +66,7 @@ categories.forEach((category) => {
 
 				<div class="item-options">
 					<button class="minus">-</button>
-					<input class="input-nb num-input" placeholder="0" inputmode="decimal" />
+					<input class="input-nb num-input" placeholder="0" inputmode="decimal" name="${item.name} Quantity Input" />
 					<button class="plus">+</button>
 				</div>
 			</div>
@@ -296,22 +300,24 @@ function renderExtraFields() {
 		row.innerHTML = `
 			<div class="extra-row-inputs">
 				<div class="form-floating extra-floating">
-					<input type="text" name="extra-name" class="form-control extra-name" placeholder="Name" autocomplete="off" value="${ef.name}"/>
-					<label>Name</label>
+					<input type="text" name="extra-name" class="form-control extra-name" placeholder="Name" autocomplete="off" value="${ef.name}" id="name-input-${
+			ef.id
+		}"/>
+					<label for="name-input-${ef.id}">Name</label>
 				</div>
 
 				<div class="form-floating extra-floating">
 					<input type="text" name="extra-price" class="form-control extra-price num-input" placeholder="Price" autocomplete="off" inputmode="decimal" value="${
 						ef.price || ''
-					}"/>
-					<label>Price</label>
+					}" id="price-input-${ef.id}"/>
+					<label for="price-input-${ef.id}">Price</label>
 				</div>
 
 				<div class="form-floating extra-floating">
 					<input type="text" name="extra-qty" class="form-control extra-qty num-input" placeholder="Qty" autocomplete="off" inputmode="decimal" value="${
 						ef.count || ''
-					}"/>
-					<label>Qty</label>
+					}" id="quantity-input-${ef.id}"/>
+					<label for="quantity-input-${ef.id}">Qty</label>
 				</div>
 			</div>
 
@@ -482,8 +488,15 @@ function printInvoice() {
  * RESET
  *****************************************************/
 resetBtn.addEventListener('click', () => {
-	if (!confirm('Reset everything?')) return;
+	confirmModal.classList.remove('hidden');
+});
 
+confirmCancel.addEventListener('click', () => {
+	confirmModal.classList.add('hidden');
+});
+
+confirmOk.addEventListener('click', () => {
+	confirmModal.classList.add('hidden');
 	sessionStorage.removeItem(STORAGE_KEY);
 
 	nameInput.value = '';

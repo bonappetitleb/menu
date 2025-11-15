@@ -38,7 +38,7 @@
 					</div>
 
 					<!-- DISCOUNT -->
-					<label class="fw-bold mb-1">Discount</label>
+					<div class="fw-bold mb-1">Discount</div>
 					<div class="d-flex gap-2 mb-3">
 						<select id="discount-type" class="form-select" style="max-width: 100px">
 							<option value="usd">USD</option>
@@ -96,6 +96,19 @@
 				</table>
 			</div>
 			<div class="thanks">Thank you for choosing us</div>
+		</div>
+
+		<!-- CONFIRM RESET MODAL -->
+		<div id="confirm-modal" class="confirm-modal hidden">
+			<div class="confirm-modal-content">
+				<h5>Reset Everything?</h5>
+				<p>This will clear all items, extra fields, and settings.</p>
+
+				<div class="confirm-modal-actions">
+					<button id="confirm-cancel" class="btn btn-secondary">Cancel</button>
+					<button id="confirm-ok" class="btn btn-danger">Yes, Reset</button>
+				</div>
+			</div>
 		</div>
 
 		<script src="./js/data.js"></script>
