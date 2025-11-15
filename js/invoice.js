@@ -254,7 +254,7 @@ function loadState() {
 		phoneInput.value = s.phone ?? '';
 		dateInput.value = s.date ?? '';
 		discountTypeEl.value = s.discountType ?? 'usd';
-		thanksInput.value = s.thanks ?? '';
+		thanksInput.value = s.thanks ?? 'Thank you for choosing us';
 		discountValueEl.value = s.discountValue ?? '';
 
 		if (Array.isArray(s.cart)) {
