@@ -71,9 +71,10 @@ const MENU_DATA = {
       "categoryId": null,
       "label": "Lent",
       "order": 0,
-      "hide": true,
+      "hide": false,
       "bgImg": "",
-      "img": null
+      "img": null,
+      "note": null
     },
     {
       "_id": "675a1c01a26c5e337381316a",
@@ -104,9 +105,15 @@ const MENU_DATA = {
       "label": "Ftayer Ton",
       "order": 2,
       "price": 5,
-      "hide": false,
+      "hide": true,
       "sizes": [],
-      "unit": "Dozen"
+      "unit": "Dozen",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4d0",
@@ -114,10 +121,16 @@ const MENU_DATA = {
       "subcategoryId": "675a1e57a26c5e33738131c5",
       "label": "Mahshe Malfouf",
       "order": 8,
-      "price": 6,
+      "price": 9,
       "hide": false,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4d8",
@@ -126,9 +139,15 @@ const MENU_DATA = {
       "label": "Fish Escalope",
       "order": 12,
       "price": 9,
-      "hide": false,
+      "hide": true,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4dc",
@@ -136,10 +155,16 @@ const MENU_DATA = {
       "subcategoryId": "675a1e57a26c5e33738131c5",
       "label": "Kebbet Samak",
       "order": 14,
-      "price": 10,
+      "price": 12,
       "hide": false,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4de",
@@ -148,9 +173,15 @@ const MENU_DATA = {
       "label": "Ma3kroun B Sekar",
       "order": 15,
       "price": 5,
-      "hide": false,
+      "hide": true,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4e2",
@@ -159,9 +190,15 @@ const MENU_DATA = {
       "label": "3waymet",
       "order": 17,
       "price": 5,
-      "hide": false,
+      "hide": true,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4ea",
@@ -383,10 +420,16 @@ const MENU_DATA = {
       "subcategoryId": "675a1e57a26c5e33738131c5",
       "label": "Wara2 3enab Zet",
       "order": 9,
-      "price": 7,
+      "price": 10,
       "hide": false,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4e0",
@@ -395,9 +438,15 @@ const MENU_DATA = {
       "label": "Ma3kroun B Joz",
       "order": 16,
       "price": 7,
-      "hide": false,
+      "hide": true,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4e4",
@@ -406,9 +455,15 @@ const MENU_DATA = {
       "label": "Gateaux Syeme",
       "order": 18,
       "price": 8,
-      "hide": false,
+      "hide": true,
       "sizes": [],
-      "unit": "piece"
+      "unit": "piece",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4e8",
@@ -532,10 +587,16 @@ const MENU_DATA = {
       "subcategoryId": "675a1e57a26c5e33738131c5",
       "label": "Samke Harra",
       "order": 10,
-      "price": 10,
+      "price": 13,
       "hide": false,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4d6",
@@ -544,9 +605,15 @@ const MENU_DATA = {
       "label": "Fish Fingers",
       "order": 11,
       "price": 8,
-      "hide": false,
+      "hide": true,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4e6",
@@ -788,10 +855,16 @@ const MENU_DATA = {
       "subcategoryId": "675a1e57a26c5e33738131c5",
       "label": "Mahshe Sele2",
       "order": 7,
-      "price": 5,
+      "price": 8,
       "hide": false,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4da",
@@ -802,7 +875,13 @@ const MENU_DATA = {
       "price": 6,
       "hide": false,
       "sizes": [],
-      "unit": "kg"
+      "unit": "kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4ec",
