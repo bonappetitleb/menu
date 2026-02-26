@@ -165,10 +165,16 @@ const MENU_DATA = {
       "subcategoryId": "675a1e57a26c5e33738131c5",
       "label": "Kebbet Rahib",
       "order": 6,
-      "price": 6,
+      "price": 5,
       "hide": false,
       "sizes": [],
-      "unit": "kg"
+      "unit": "0.5 kg",
+      "bgImg": null,
+      "calories": null,
+      "description": null,
+      "img": null,
+      "is_New": false,
+      "is_Starred": false
     },
     {
       "_id": "675a208febd6bb71b831c4ce",
