@@ -86,10 +86,8 @@ categories.forEach((category) => {
 	const logoImg = logo ? `<img src="${logo}" alt="" />` : '';
 	endSection.innerHTML = `
 		<div class="menu-end-inner">
-			${logoImg}
 			<p class="menu-end-text">Bon Appétit!</p>
 			<span class="menu-end-sub">${MENU_DATA.store.storeName}</span>
-			${logoImg}
 		</div>
 	`;
 	mainDOM.appendChild(endSection);

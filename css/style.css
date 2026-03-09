@@ -440,6 +440,7 @@ section {
 	text-align: center;
 	position: relative;
 	max-width: 480px;
+	scroll-margin-top: 3.8rem;
 	opacity: 0;
 	transform: translateY(28px);
 	transition:
