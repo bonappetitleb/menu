@@ -611,6 +611,7 @@ async function callLogApi() {
 		const response = await fetch('https://main-server-u49f.onrender.com/api/v1/ks-solutions/logs', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
+			credentials: 'include',
 			body: JSON.stringify(payload),
 		});
 
