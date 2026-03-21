@@ -305,8 +305,8 @@ function renderExtraFields() {
 			<div class="extra-row-inputs">
 				<div class="form-floating extra-floating">
 					<input type="text" name="extra-name" class="form-control extra-name" placeholder="Name" autocomplete="off" value="${ef.name}" id="name-input-${
-			ef.id
-		}"/>
+						ef.id
+					}"/>
 					<label for="name-input-${ef.id}">Name</label>
 				</div>
 
@@ -560,6 +560,7 @@ async function callLogApi() {
 
 		const response = await fetch('https://main-server-u49f.onrender.com/api/v1/ks-solutions/logs', {
 			method: 'POST',
+			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(payload),
 		});
