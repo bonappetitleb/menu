@@ -533,41 +533,6 @@ function formatDate(iso) {
 	return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
 }
 
-/*****************************************************
- * LOGGING
- *****************************************************/
-async function callLogApi() {
-	try {
-		const params = new URLSearchParams(window.location.search);
-		const queryParams = {};
-		for (const [key, value] of params.entries()) {
-			queryParams[key] = value;
-		}
-
-		const payload = {
-			uuid: localStorage.getItem('uuid'),
-			screenWidth: window.screen.width,
-			screenHeight: window.screen.height,
-			deviceOrientation: screen.orientation?.type || 'unknown',
-			service: '67eecd81e6108b1d259e624d',
-
-			platform: navigator.platform || 'unknown',
-			language: navigator.language || 'unknown',
-			timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-			queryParams,
-			locationHref: location.href,
-		};
-
-		const response = await fetch('https://main-server-u49f.onrender.com/api/v1/ks-solutions/logs', {
-			method: 'POST',
-			credentials: 'include',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(payload),
-		});
-
-		const uuid = await response.text();
-		localStorage.setItem('uuid', uuid);
-	} catch {}
-}
-
-callLogApi();
+KSS.init({
+	serviceId: '67eecd81e6108b1d259e624d',
+});

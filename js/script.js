@@ -586,38 +586,6 @@ if (invoiceBtn) {
 	});
 })();
 
-/* ---------- Analytics ---------- */
-async function callLogApi() {
-	try {
-		const params = new URLSearchParams(window.location.search);
-		const queryParams = {};
-		for (const [key, value] of params.entries()) {
-			queryParams[key] = value;
-		}
-
-		const payload = {
-			uuid: localStorage.getItem('uuid'),
-			screenWidth: window.screen.width,
-			screenHeight: window.screen.height,
-			deviceOrientation: screen.orientation?.type || 'unknown',
-			service: MENU_DATA.store.menuId,
-			platform: navigator.platform || 'unknown',
-			language: navigator.language || 'unknown',
-			timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-			queryParams,
-			locationHref: location.href,
-		};
-
-		const response = await fetch('https://main-server-u49f.onrender.com/api/v1/ks-solutions/logs', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			credentials: 'include',
-			body: JSON.stringify(payload),
-		});
-
-		const uuid = await response.text();
-		localStorage.setItem('uuid', uuid);
-	} catch {}
-}
-
-callLogApi();
+KSS.init({
+	serviceId: MENU_DATA.store.menuId,
+});
