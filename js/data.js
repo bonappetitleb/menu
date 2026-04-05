@@ -1186,6 +1186,7 @@ const data = MENU_DATA.items
 				categoryBg: category.bgImg || MENU_DATA.store.storeLogo,
 				unit: i.unit,
 				price: i.price,
+				order: i.order,
 			};
 		} else {
 			return undefined;
