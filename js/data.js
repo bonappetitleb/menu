@@ -91,7 +91,7 @@ const MENU_DATA = {
       "categoryId": null,
       "label": "Lent",
       "order": 0,
-      "hide": false,
+      "hide": true,
       "bgImg": "",
       "img": null,
       "note": null
