@@ -35,6 +35,7 @@ var confirmCancel = document.getElementById('confirm-cancel');
 var categories = [];
 var cart = [];
 var extraFields = [];
+var STORE;
 
 function initStoreInfo(STORE) {
 	storeNameEl.textContent = STORE.storeName || '';
@@ -52,7 +53,7 @@ KSS_ENGINE.init({
 });
 
 KSS_ENGINE.onReady(function (menuData) {
-	const STORE = menuData.store;
+	STORE = menuData.store;
 	initStoreInfo(STORE);
 	var subCategories = menuData.subCategories;
 
